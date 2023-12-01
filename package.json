@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Tool to generate image using OpenAI's api.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
