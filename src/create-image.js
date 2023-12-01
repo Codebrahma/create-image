@@ -32,6 +32,10 @@ async function createImage(input) {
 
     console.log("Image created successfully.\n");
 
+    console.log("Image URL:\n");
+    console.log(url);
+    console.log("\n");
+
     console.log("Downloading image...\n");
 
     const dir = "created-images";
