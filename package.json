@@ -4,6 +4,9 @@
   "description": "Tool to generate image using OpenAI's api.",
   "main": "index.js",
   "type": "module",
+  "bin": {
+    "create-image-cli": "./src/index.js"
+  },
   "scripts": {
     "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
