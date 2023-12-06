@@ -5,9 +5,10 @@ async function createImage(input) {
   try {
     const OPENAI_API_KEY = process.env.OPENAI_API_KEY || "";
 
-    const prompt = `This is a photo of a ${input.description.toLowerCase()}.`;
+    const prompt = input.description.toLowerCase();
 
     console.log("\nCreating image...\n");
+
     const response = await axios({
       method: "post",
       url: "https://api.openai.com/v1/images/generations",
@@ -20,6 +21,7 @@ async function createImage(input) {
         model: input.model,
         n: 1,
         size: input.size,
+        quality: input?.quality || "standard",
       },
     });
     const { data } = response;
