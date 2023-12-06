@@ -41,21 +41,30 @@ async function createImage(input) {
     console.log("Downloading image...\n");
 
     const dir = "created-images";
+
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir);
     }
 
-    const imagePath = `created-images/image-${data?.created || Date.now()}.png`;
+    const imagePath = `${process.cwd()}/${dir}/image-${
+      data?.created || Date.now()
+    }.png`;
 
-    await axios({
+    const downloadResponse = await axios({
       method: "get",
       url,
       responseType: "stream",
-    }).then((response) => {
-      response.data.pipe(fs.createWriteStream(imagePath));
     });
 
-    console.log(`Image downloaded at ${process.cwd()}/${imagePath}`);
+    const writer = fs.createWriteStream(imagePath);
+    downloadResponse.data.pipe(writer);
+
+    await new Promise((resolve, reject) => {
+      writer.on("finish", resolve);
+      writer.on("error", reject);
+    });
+
+    console.log(`Image downloaded at ${imagePath}`);
   } catch (error) {
     console.error("\x1b[31m", "Something went wrong. Please try again.");
   }
