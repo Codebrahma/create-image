@@ -60,7 +60,7 @@ async function start() {
         type: "list",
         name: "size",
         message: "Select image size:",
-        choices: ["1024x1024", "1729x1024", "1024x1729"],
+        choices: ["1024x1024", "1792x1024", "1024x1792"],
         when: (answers) => answers.model === "dall-e-3",
       },
       {
