@@ -7,6 +7,11 @@
   "bin": {
     "create-image-cli": "src/index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Codebrahma/create-image.git"
+  },
+  "homepage": "https://github.com/Codebrahma/create-image#readme",
   "scripts": {
     "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
