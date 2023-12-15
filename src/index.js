@@ -15,16 +15,18 @@ async function start() {
       return;
     }
 
+    const descriptionMaxLen = 1000;
+
     const questions = [
       {
         type: "input",
         name: "description",
-        message: "Enter image description (Max 50 characters):",
+        message: "Enter image description:",
         validate: function (value) {
           const length = value.trim().length;
           if (length > 0) {
-            if (length > 50) {
-              return "Description should be less than 50 characters.";
+            if (length > descriptionMaxLen) {
+              return `Description should be less than ${descriptionMaxLen} characters.`;
             }
             return true;
           } else {
