@@ -116,7 +116,10 @@ async function start(argv) {
 
     await createImage(options);
   } catch (error) {
-    console.error("\x1b[31m", `Something went wrong. Please try again. ${error?.message || ''}`);
+    console.error(
+      "\x1b[31m",
+      `Something went wrong. Please try again. ${error?.message || ""}`
+    );
   } finally {
     process.exit(0);
   }
@@ -219,6 +222,7 @@ const argv = yargs(hideBin(process.argv))
     }
   )
   .demandCommand(1, "")
-  .showHelpOnFail(true).argv;
+  .showHelpOnFail(true)
+  .strict().argv;
 
 start(argv);
