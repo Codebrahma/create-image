@@ -23,6 +23,9 @@
     "image",
     "cli"
   ],
+  "files": [
+    "src"
+  ],
   "author": "Naveenraj",
   "license": "MIT",
   "dependencies": {
