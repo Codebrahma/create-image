@@ -23,6 +23,7 @@ export OPENAI_API_KEY=<YOUR_OPENAI_API_KEY>
 ```
 
 ### 3. Create Image:
+
 #### 1. Interactive Way:
 
 ```bash
@@ -30,6 +31,10 @@ create-image-cli start
 ```
 
 This command will launch an interactive interface that guides you through the image generation process. You'll be prompted to enter the necessary information, such as the description or prompt for the image, and any additional options. Follow the on-screen instructions to customize the image generation according to your preferences.
+
+#### Example:
+
+![Non Interactive Example](<./examples/interactive.png>)
 
 #### 2. Non Interactive Way:
 
@@ -59,3 +64,7 @@ create-image-cli generate --description "A serene sunset over a mountain lake"
 `dall-e-3`
   - Choices: `natural`, `vivid`.
   - Default: `natural`
+
+#### Example:
+
+![Non Interactive Example](<./examples/non-interactive.png>)
