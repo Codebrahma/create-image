@@ -10,12 +10,6 @@ You can install create-image-cli globally using npm:
 npm install -g create-image-cli
 ```
 
-Alternatively, you can use npx to run the tool directly without installing it globally:
-
-```bash
-npx create-image-cli
-```
-
 ## Usage
 
 ### 1. Generate an API key:
@@ -29,10 +23,48 @@ export OPENAI_API_KEY=<YOUR_OPENAI_API_KEY>
 ```
 
 ### 3. Create Image:
-Run the following command to initiate the image generation process:
+
+#### 1. Interactive Way:
 
 ```bash
-create-image-cli
+create-image-cli start
 ```
 
 This command will launch an interactive interface that guides you through the image generation process. You'll be prompted to enter the necessary information, such as the description or prompt for the image, and any additional options. Follow the on-screen instructions to customize the image generation according to your preferences.
+
+#### Example:
+
+![Non Interactive Example](<./examples/interactive.png>)
+
+#### 2. Non Interactive Way:
+
+```bash
+create-image-cli generate --description "A serene sunset over a mountain lake"
+```
+
+#### Options:
+
+- `--description, -d` (Required): Image description or prompt to generate.
+
+- `--model, -m` (Optional): Model to use for image generation.
+  - Choices: `dall-e-2`, `dall-e-3`
+  - Default: `dall-e-2`
+
+- `--size, -s` (Optional): Size of the image.
+  - dall-e-2 choices:  `256x256`, `512x512`, `1024x1024`
+  - dall-e-3 choices: `1024x1024`, `1792x1024`, `1024x1792`
+  - Default: `1024x1024`
+
+- `--quality, -q` (Optional): Quality of the image. Supports ony for 
+`dall-e-3`
+  - Choices: `standard`, `hd`.
+  - Default: `standard`
+
+- `--style` (Optional): Style of the image. Supports ony for 
+`dall-e-3`
+  - Choices: `natural`, `vivid`.
+  - Default: `natural`
+
+#### Example:
+
+![Non Interactive Example](<./examples/non-interactive.png>)
